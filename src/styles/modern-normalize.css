@@ -1,5 +1,4 @@
-/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /*
 Document
 ========
@@ -40,7 +39,7 @@ Sections
 
 body {
   margin: 0; /* 1 */
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+  font-family:'Raleway', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji'; /* 2 */
 }
 

@@ -1,12 +1,13 @@
 :root {
   /* colors */
-  --clr-dark: #11112A;
-  --clr-black: #141414;
-  --clr-light: #f1f5f9;
-  --clr-blue: #3273FA;
-  --clr-lightblue: #25254B;
-  --clr-darkblue: #0F0F38;
-  --clr-orange: #FF9B00;
+  --ruby-red: #BC1526;
+  --royal-gold: #D4AF37;
+  --peasant-gold: #865D1C;
+  --sand-beige: #DDCBAF;
+  --treasure-map-beige: #E7E0CF;
+  --divine-white: #F2F2F2;
+  --soil-black: #190703;
+  --success:#4F8B0E;
   /* sizing */
   --size-xxs: 0.5rem;
   --size-xs: 0.75rem;
@@ -25,6 +26,16 @@
   --size-10xl: 10rem;
 }
 
+@font-face {
+  font-family: 'DRAGON HUNTER';
+  src: url('../DragonHunter.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.dragon {
+  font-family: 'DRAGON HUNTER', sans-serif;
+}
+
 * {
   margin: 0;
   line-height: calc(1em + 0.5rem);
@@ -35,17 +46,13 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-}
-
 img,
 picture,
 video,
 canvas,
 svg {
   display: block;
-  width: 100%;
+ 
   height: auto;
   max-width: 100%;
   user-select: none;
