@@ -1,20 +1,26 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import Nav from "./components/Nav";
+
 import BurgerMenu from "./components/Burger";
 import Home from "./pages/Home";
-import Characters from "./pages/Characters";
-import "./styles/index.css"; // Main stylesheet
+import FindPals from "./pages/findPals";
+import DiceRoller from "./pages/diceRoller";
+import "./styles/index.css"; 
 
 function App() {
-    const location = useLocation(); // Get the current location
-
-    // Function to determine the current page text based on the path
+    const location = useLocation(); 
+   
     const getCurrentPageText = () => {
         switch (location.pathname) {
             case "/":
-                return ""; // Text for the Home page
-            case "/characters":
-                return "Your Characters"; // Text for the Characters page
+                return ""; 
+            case "/findPals":
+                return "Find Pals"; 
+            case "/DiceRoller":
+                return "Dice Roller"; 
+            case "/adventureJournal":
+                return "Adventure Journal"; 
+            case "/characterSheets":
+                return "Character Sheets"; 
             default:
                 return ""; // Default text if no match is found
         }
@@ -23,10 +29,17 @@ function App() {
     return (
         <>
             <BurgerMenu currentPageText={getCurrentPageText()} /> {/* Pass the current page text */}
-            <Nav />
+            
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/characters" element={<Characters />} />
+                <Route path="/FindPals" element={<FindPals />} />
+                <Route path="/matches" element={<matches />} />
+                {/* <Route path="/characters" element={<Characters />} /> */}
+                {/* <Route path="/characters" element={<Characters />} /> */}
+                <Route path="/adventureJournal" element={<adventureJournal />} />
+                {/* <Route path="/CharacterSheets" element={<CharacterSheets />} /> */}
+                <Route path="/DiceRoller" element={<DiceRoller />} />
+                
             </Routes>
         </>
     );

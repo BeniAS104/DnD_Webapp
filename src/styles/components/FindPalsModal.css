@@ -1,0 +1,79 @@
+/* Animation for modal appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        
+    }
+    to {
+        opacity: 1;
+       
+    }
+}
+
+/* Animation for modal disappearance */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        
+    }
+    to {
+        opacity: 0;
+        
+    }
+}
+
+/* Modal backdrop styles */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Apply fadeOut animation */
+.modal-backdrop.exit {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+  
+  .fp-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: var(--soil-black);
+    padding: 20px;
+ 
+    max-width: 75%;
+    text-align: center;
+    color: var(--divine-white);
+  }
+  
+  .fp-modal-firstpara {
+    max-width: 22ch;
+    
+  }
+  
+  .fp-modal button {
+    border: 2px solid var(--royal-gold);
+    background: var(--ruby-red);
+    padding: 0.625rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--divine-white);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-inline: auto;
+  }
+  .fp-modal * span {
+    font-family: "DRAGON HUNTER";
+  }
+  

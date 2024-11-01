@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import '../styles/components/BurgerMenu.css';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 const BurgerMenu = ({currentPageText}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,60 +24,61 @@ const BurgerMenu = ({currentPageText}) => {
         <div className="line"></div>
         <div className="line"></div>
       </div>
+      <NavLink to="/">
       <img 
   src="red_icon.svg" 
   alt="red dungeon pal logo" 
   style={{ marginLeft: '1rem', height: '42px' }} 
-/>
+/></NavLink>
 <p className='text'>{currentPageText}</p>
 
 
 {currentPageText === "" ? (
-          <button className="menu-button">Sign Up</button> // Button for Home page
+          <button className="menu-button">Sign Up</button> 
         ) : (
-          <img src="/placeholder_icon.svg" alt="Additional Info" style={{ height: '37px', marginLeft: 'auto' }} /> // Image for other pages
+          <img src="/placeholder_icon.svg" alt="Additional Info" style={{ height: '37px', marginLeft: 'auto' }} /> 
         )}
 </div>
 
       <nav className={`menu ${isOpen ? 'open' : ''}`}>
         <ul>
-          <li><a href="#home"><div><img src="/menu_search.svg" alt="Search icon"/><p>Find Pals</p></div></a></li>
-          <li className="menu-space"><a href="#about">Discover</a></li>
-          <li className="menu-space"><a href="#services">Matches</a></li>
+        <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_search.svg" alt="Search icon"/><p>Find Pals</p></div></NavLink></li>
+          <li className="menu-space"><NavLink to="/findPals" onClick={toggleMenu}>Discover</NavLink></li>
+          <li className="menu-space"><NavLink to="/matches" onClick={toggleMenu}>Matches</NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_pals.svg" alt="Search icon"/><p>My Pals</p></div></a></li>
-          <li className="menu-space"><a href="#about">Players</a></li>
-          <li className="menu-space"><a href="#services">Groups</a></li>
+          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_pals.svg" alt="Search icon"/><p>My Pals</p></div></NavLink></li>
+          <li className="menu-space"><NavLink to="/matches" onClick={toggleMenu}>Groups</NavLink></li>
+          <li className="menu-space"><NavLink to="/matches" onClick={toggleMenu}>Players</NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_journal.svg" alt="Journal icon"/><p>Adventure Journal</p></div></a></li>
+          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_journal.svg" alt="Journal icon"/><p>Adventure Journal</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_sheets.svg" alt="sheets icon"/><p>Character Sheets</p></div></a></li>
+          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_sheets.svg" alt="sheets icon"/><p>Character Sheets</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_dice.svg" alt="dice icon"/><p>Dice Roller</p></div></a></li>
+          <li><NavLink to="/DiceRoller" onClick={toggleMenu}><div><img src="/menu_dice.svg" alt="dice icon"/><p>Dice Roller</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_inspiration.svg" alt="inspiration icon"/><p>Inspiration</p></div></a></li>
+          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_inspiration.svg" alt="inspiration icon"/><p>Inspiration</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_music.svg" alt="music icon"/><p>Music</p></div></a></li>
+          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_music.svg" alt="music icon"/><p>Music</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_ai.svg" alt="ai icon"/><p>Dungeon Pal AI</p></div></a></li>
+          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_ai.svg" alt="ai icon"/><p>Dungeon Pal AI</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>
-          <li><a href="#home"><div><img src="/menu_themes.svg" alt="themes icon"/><p>Themes</p></div></a></li>
+          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_themes.svg" alt="themes icon"/><p>Themes</p></div></NavLink></li>
           </ul>
           <hr/>
 
