@@ -1,0 +1,175 @@
+.upper-division {
+    background-color: var(--soil-black);
+    color: var(--divine-white);
+    position: fixed;
+    width: 100%;
+ 
+}
+.divide {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--soil-black);
+}
+.divide div {
+    width: 50%;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+.divide div.active {
+    background-color: var(--treasure-map-beige);
+    color: var(--soil-black);
+    font-weight: 600;
+}
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+    color: #ff4d4d;
+  }
+  
+  .nav {
+    display: flex;
+  }
+  
+  .tab {
+    color: #fff;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  /* Profile Section */
+  .page-content {
+    background-color: var(--treasure-map-beige);
+    overflow-y: auto;
+    padding: 74px 20px 20px 20px; /* Space for header */
+    text-align: center;
+  }
+  .profile {
+    display: flex;
+    padding: 40px 10px;
+    position: relative;
+    gap: 1rem;
+  }
+  .profile span{
+    font-weight: 700;
+  }
+  .profile p, .profile h2{
+    text-align: left;
+  }
+
+  .profile-data div{
+    display: flex;
+    gap: 0.5rem;
+  }
+  .avatar {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    position: relative;
+  }
+  .verify {
+    position: absolute;
+    bottom: 45px;
+    left: 28px;
+  }
+  
+  .about {
+   text-align: left;
+  }
+  .about h3{
+   margin-bottom: 0.6rem;
+  }
+  .list {
+    background-color: #DDD2B6; 
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .list-item {
+    text-align: center;
+    flex: 1;
+    color: #3A2926; /* Dark color for contrast */
+  }
+  
+  .list-item img {
+    max-width: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .list-item p {
+    font-size: 1.1em;
+    margin-top: 5px;
+  }
+  
+  
+  /* Footer */
+  .footer {
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--soil-black);
+    
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'DRAGON HUNTER';
+    color: var(--divine-white);
+    font-size: 2.5rem;
+  }
+  .pass {
+    color: var(--ruby-red);
+  }
+  
+  .join {
+    color: var(--success);
+  }
+  
+  hr.divider {
+   
+        width: 1px;          /* Thin width to match the design */
+        height: 3.5rem;         /* Adjust height to look good in between buttons */
+        border-color: var(--treasure-map-beige); /* Adjust color to match your design */
+        display: inline-block;
+        margin: auto 0.8rem;      /* Add spacing between buttons */
+      
+      
+  }
+  
+  

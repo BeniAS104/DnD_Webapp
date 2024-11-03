@@ -1,0 +1,288 @@
+* {
+  font-family: 'Raleway';
+  
+}
+.dice-roller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--soil-black);
+  color: var(--divine-white);
+}
+
+.dice-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 12px;
+  margin: 25px 0 40px;
+}
+
+.dice-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 35%;
+  outline: 2px solid var(--divine-white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: var(--soil-black); 
+}
+
+.roll-display {
+  display: flex;
+  overflow: hidden;
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--sand-beige);
+  border: 3px solid var(--royal-gold);
+  min-width: 362px;
+  min-height: 362px;
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.roll-results {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease; /* Smooth scaling transition */
+}
+
+/* Previous CSS */
+
+.roll-result {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  animation: rollAnimation 0.5s ease;
+}
+
+
+
+
+@keyframes rollAnimation {
+  0% {
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.total {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end; 
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'DRAGON HUNTER';
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  color: var(--soil-black);
+}
+.total span:nth-child(1) {
+  font-family: 'Raleway';
+}
+.total span:nth-child(2) {
+  font-family: 'Raleway';
+  font-size: 2.25rem;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+
+
+.roll-button:nth-child(1) {
+  border: 3px solid var(--royal-gold);
+    background: var(--ruby-red);
+    padding: 0.825rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--divine-white);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: auto;
+    border-radius: 0;
+  width: 362px;
+
+}
+
+.remove-button {
+  border: 3px solid var(--royal-gold);
+  background: var(--sand-beige);
+  padding: 0.825rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--soil-black);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: auto;
+  border-radius: 0;
+  width: calc( 352px/2);
+
+}
+
+.reset-button {
+  border: 3px solid var(--royal-gold);
+  background: var(--soil-black);
+  padding: 0.825rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--divine-white);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: auto;
+  border-radius: 0;
+  width: calc( 352px/2);
+}
+
+.increment-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+}
+
+.increment-button {
+  width: 50px;
+  height: 50px;
+  background-color: var(--ruby-red);
+  color: #ffffff;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.increment-input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.50rem;
+  background: var(--sand-beige);
+  border: 2px solid var(--peasant-gold);
+  color: var(--peasant-gold);
+  appearance: textfield; /* Standard property */
+  -moz-appearance: textfield; /* Firefox */
+  -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+}
+
+.increment-input::-webkit-outer-spin-button,
+.increment-input::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Additional spin button removal for WebKit browsers */
+  margin: 0;
+}
+
+
+.increment-mode {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.increment-mode label {
+  cursor: pointer; /* Pointer cursor for better UX */
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.increment-mode input[type="radio"] {
+  display: none; /* Hide the default radio button */
+}
+
+/* Custom radio button styles */
+.increment-mode input[type="radio"] + span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--royal-gold); /* Default border color */
+  position: relative;
+  
+  cursor: pointer; /* Pointer cursor for better UX */
+  transition: background 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+/* Change the color when the radio button is checked */
+.increment-mode input[type="radio"]:checked + span {
+  background-color: var(--ruby-red); /* Background color when checked */
+  border-color: var(--royal-gold); /* Darker border color */
+}
+
+/* Add a small dot to indicate the selected state */
+.increment-mode input[type="radio"]:checked + span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px; /* Dot size */
+  height: 10px; /* Dot size */
+  background-color: white; /* Dot color */
+  border-radius: 50%; /* Circular dot */
+  transform: translate(-50%, -50%); /* Center the dot */
+}
+
+.increment-mode input[type="radio"] {
+  margin-right: 8px;
+}
+
+
+
+.roll-result.enter {
+  animation: rollAnimation 0.5s ease forwards;
+}
+
+.roll-result.exit {
+  animation: exitAnimation 0.3s ease forwards;
+}
+
+@keyframes exitAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.grouper {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px;
+}

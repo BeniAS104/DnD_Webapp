@@ -2,7 +2,14 @@
   position: relative;
   padding:1.25rem;
   display: flex;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;  
+  background-color: var(--sand-beige);
+  border-bottom: 2px solid var(--soil-black);
   
+
 }
 header {
     background-color: var(--treasure-map-beige);
