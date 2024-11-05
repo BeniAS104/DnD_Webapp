@@ -2,6 +2,16 @@ import { useState, useEffect } from 'react';
 import FindPalsModal from '../components/FindPalsModal';
 import '../styles/FindPals.css';
 
+const splitText = (text) => {
+  return text.split(',').map((part, index) => (
+    <span key={index}>
+      {part}{index < text.split(',').length - 1 && ',' /* Adds the comma */}
+      {index < text.split(',').length - 1 && <br />} {/* Adds <br> after each part except the last one */}
+    </span>
+  ));
+};
+
+
 // Mock Discover and Matches components
 const Discover = () => (
   <div className="discover-content">
@@ -84,23 +94,33 @@ const FindPals = () => {
         </div>
         </div>
 
-        <div className="about">
+<div className="about">
   <h3>About D&D</h3>
+
   <ul className="list">
-    <div>
-      <img src="witch-hat.svg" alt="witch-hat" />
-      <p>Experienced</p>
-    </div>
-    <div>
-      <img src="equipment.svg" alt="equipment" />
-      <p>DM,Player</p>
-    </div>
-    <div>
-      <img src="dicey.svg" alt="dice" />
-      <p>Homebrew, 5E</p>
-    </div>
-    
-  </ul>
+  <div>
+    <img src="witch-hat.svg" alt="witch-hat" />
+    <p>{splitText("Experienced")}</p>
+  </div>
+  <div>
+    <img src="equipment.svg" alt="equipment" />
+    <p>{splitText("DM,Player")}</p>
+  </div>
+  <div>
+    <img src="dicey.svg" alt="dice" />
+    <p>{splitText("Homebrew, 5E")}</p>
+  </div>
+</ul>
+
+
+<div className="about-me">
+  <h3>About Me</h3>
+  <p>Big fan of fantasy, storytelling, and all things D&D. I love building campaigns and diving into epic quests with a great group. Always up for meeting new people who are into creating wild characters and stories.</p>
+</div>
+<div className="about-me">
+  <h3>I'm looking for</h3>
+  <p>I'm looking for a group to join for weekly sessions, and I'm eager to try my hand at being the DM.</p>
+</div>
 </div>
 
       
