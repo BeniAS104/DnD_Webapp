@@ -19,6 +19,7 @@ function App() {
     if (location.pathname === "/DiceRoller") return "Dice Roller";
     if (location.pathname.startsWith("/AdventureJournal")) return "Adventure Journal"; // Catch all paths for AdventureJournal
     if (location.pathname === "/characterSheets") return "Character Sheets";
+    if (location.pathname === "/PlayerChat") return "My Pals";
     return ""; 
   };
   
