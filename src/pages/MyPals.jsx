@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/MyPals.css";
+import { NavLink } from "react-router-dom";
 
 const userData = {
   name: "Jonas",
@@ -13,18 +14,20 @@ const userData = {
 // Mock Players and Groups components
 const Players = () => (
   <div>
-    <div className="players-content">
-      <img src="avatar.svg" alt="avatar" />
-      <div className="players-content-text">
-        <h1>
-          {userData.name}, {userData.age}
-        </h1>
-        <h2>You: Thank you for today!</h2>
+    <NavLink to="/PlayerChat">
+      <div className="players-content">
+        <img src="avatar.svg" alt="avatar" />
+        <div className="players-content-text">
+          <h1>
+            {userData.name}, {userData.age}
+          </h1>
+          <h2>You: Thank you for today!</h2>
+        </div>
+        <div className="time">
+          <h2>19:42</h2>
+        </div>
       </div>
-      <div className="time">
-        <h2>19:42</h2>
-      </div>
-    </div>
+    </NavLink>
     <div className="players-content">
       <img src="avatar.svg" alt="avatar" />
       <div className="players-content-text">
