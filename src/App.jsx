@@ -2,9 +2,10 @@ import { Route, Routes, useLocation } from "react-router-dom";
 
 import BurgerMenu from "./components/Burger";
 import Home from "./pages/Home";
-import FindPals from "./pages/findPals";
-import DiceRoller from "./pages/diceRoller";
-import "./styles/index.css"; 
+import FindPals from "./pages/FindPals";
+import DiceRoller from "./pages/DiceRoller";
+import MyPals from "./pages/MyPals";
+import "./styles/index.css";
 
 function App() {
   const location = useLocation();
@@ -15,6 +16,8 @@ function App() {
         return "";
       case "/findPals":
         return "Find Pals";
+      case "/MyPals":
+        return "My Pals";
       case "/DiceRoller":
         return "Dice Roller";
       case "/adventureJournal":
@@ -46,3 +49,4 @@ function App() {
 }
 
 export default App;
+

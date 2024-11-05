@@ -48,9 +48,9 @@ const BurgerMenu = ({currentPageText}) => {
           </ul>
           <hr/>
           <ul>
-          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_pals.svg" alt="Search icon"/><p>My Pals</p></div></NavLink></li>
-          <li className="menu-space"><NavLink to="/matches" onClick={toggleMenu}>Groups</NavLink></li>
-          <li className="menu-space"><NavLink to="/matches" onClick={toggleMenu}>Players</NavLink></li>
+          <li><NavLink to="/MyPals" onClick={toggleMenu}><div><img src="/menu_pals.svg" alt="Search icon"/><p>My Pals</p></div></NavLink></li>
+          <li className="menu-space"><NavLink to="/MyPals" onClick={toggleMenu}>Groups</NavLink></li>
+          <li className="menu-space"><NavLink to="/MyPals" onClick={toggleMenu}>Players</NavLink></li>
           </ul>
           <hr/>
           <ul>
