@@ -76,7 +76,7 @@ const FindPals = () => {
 
         <div className="profile-data">
         <h2>{userData.name}</h2>
-        <p>@{userData.username}</p>
+        <p className='username'>@{userData.username}</p>
         <p>Age: <span>{userData.age}</span></p>
         <p>Gender:  <span>{userData.gender}</span></p>
         <p>Pronouns:  <span>{userData.pronouns}</span></p>
@@ -87,12 +87,19 @@ const FindPals = () => {
         <div className="about">
   <h3>About D&D</h3>
   <ul className="list">
-    {userData.aboutDnd.map((item, index) => (
-      <li key={index} className="list-item">
-        <img src="placeholder.svg" alt={`Icon ${index}`} />
-        <p>{item}</p>
-      </li>
-    ))}
+    <div>
+      <img src="witch-hat.svg" alt="witch-hat" />
+      <p>Experienced</p>
+    </div>
+    <div>
+      <img src="equipment.svg" alt="equipment" />
+      <p>DM,Player</p>
+    </div>
+    <div>
+      <img src="dicey.svg" alt="dice" />
+      <p>Homebrew, 5E</p>
+    </div>
+    
   </ul>
 </div>
 

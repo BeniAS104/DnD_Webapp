@@ -2,8 +2,8 @@ import { Route, Routes, useLocation } from "react-router-dom";
 
 import BurgerMenu from "./components/Burger";
 import Home from "./pages/Home";
-import FindPals from "./pages/findPals";
-import DiceRoller from "./pages/diceRoller";
+import FindPals from "./pages/FindPals";
+import DiceRoller from "./pages/DiceRoller";
 import "./styles/index.css"; 
 
 function App() {
