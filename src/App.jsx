@@ -6,6 +6,7 @@ import FindPals from "./pages/FindPals";
 import DiceRoller from "./pages/DiceRoller";
 import MyPals from "./pages/MyPals";
 import "./styles/index.css";
+import PlayerChat from "./pages/PlayerChat";
 
 function App() {
   const location = useLocation();
@@ -43,10 +44,10 @@ function App() {
         {/* <Route path="/CharacterSheets" element={<CharacterSheets />} /> */}
         <Route path="/DiceRoller" element={<DiceRoller />} />
         <Route path="/MyPals" element={<MyPals />} />
+        <Route path="/PlayerChat" element={<PlayerChat />} />
       </Routes>
     </>
   );
 }
 
 export default App;
-
