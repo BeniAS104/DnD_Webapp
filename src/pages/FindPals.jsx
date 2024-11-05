@@ -116,8 +116,9 @@ const Matches = () => (
 
 const FindPals = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [activeTab, setActiveTab] = useState('Discover'); // State to track the active component
-  const [showPopUp, setShowPopUp] = useState(false); // State for the pop-up
+  const [activeTab, setActiveTab] = useState('Discover');
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [isPopUpVisible, setIsPopUpVisible] = useState(false); // State to track if the popup is visible
 
   useEffect(() => {
     const hasSeenOnboarding = localStorage.getItem('hasSeenOnboarding');
@@ -132,9 +133,11 @@ const FindPals = () => {
   };
 
   const handleJoinClick = () => {
-    setShowPopUp(true); // Show the pop-up
+    setShowPopUp(true);
+    setIsPopUpVisible(true); // Set pop-up to be visible
     setTimeout(() => {
-      setShowPopUp(false); // Hide it after 2 seconds
+      setIsPopUpVisible(false); // Hide after 2 seconds
+      setTimeout(() => setShowPopUp(false), 500); // Delay hiding the content after animation completes
     }, 2000);
   };
 
@@ -142,7 +145,6 @@ const FindPals = () => {
     <div>
       {isModalVisible && <FindPalsModal onClose={handleCloseModal} />}
       
-      {/* Upper division with tab buttons */}
       <div className='upper-division'>
         <div className="divide">
           <div 
@@ -160,11 +162,10 @@ const FindPals = () => {
         </div>
       </div>
 
-      {/* Show pop-up message when the Join button is clicked */}
+      {/* Show pop-up message with animation */}
       {showPopUp && (
-        <div className="popup-message">
-          <img src="success.svg" alt="success" />
-          <p>You&apos;ve shown interest!</p>
+        <div className={`popup-message ${isPopUpVisible ? 'show' : 'hide'}`}>
+          You&apos;ve shown interest!
         </div>
       )}
 
@@ -174,5 +175,6 @@ const FindPals = () => {
     </div>
   );
 };
+
 
 export default FindPals;

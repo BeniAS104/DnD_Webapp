@@ -255,7 +255,21 @@ font-weight: 700;
   z-index: 1000; /* Ensure it appears above other content */
   align-items: center;
   justify-content: center;
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Animate opacity and position */
+  pointer-events: none; /* Prevent interaction while fading */
+
 }
+.popup-message.show {
+  opacity: 1; /* Fully visible when the 'show' class is added */
+  transform: translateY(0); /* Reset position for sliding effect */
+}
+
+.popup-message.hide {
+  opacity: 0; /* Fade out */
+  transform: translateY(-20px); /* Optional: slide upwards slightly on hide */
+}
+
 .popup-message img{
   max-width: 40px;
 }
