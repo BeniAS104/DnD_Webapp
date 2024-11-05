@@ -1,17 +1,17 @@
 body {
   background-color: var(--treasure-map-beige);
 }
-h1 {
+.players-content-text h1 {
   font-size: 24px;
   color: var(--soil-black);
   font-weight: 400;
 }
-h2 {
+.players-content h2 {
   font-size: 14px;
   color: var(--peasant-gold);
   font-weight: 400;
 }
-h3 {
+.footer-mypals h3 {
   font-size: 16px;
   color: var(--divine-white);
   font-weight: 600;
