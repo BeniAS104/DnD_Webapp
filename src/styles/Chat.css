@@ -57,15 +57,14 @@
 
 .chat-input {
   display: flex;
-  background-color: #3e2723;
+  background-color: var(--soil-black);
   padding: 10px;
 }
 
 input[type="text"] {
   flex: 1;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
+  border: solid var();
   outline: none;
   margin-right: 5px;
 }
