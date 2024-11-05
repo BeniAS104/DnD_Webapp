@@ -121,6 +121,26 @@ const FindPals = () => {
   <h3>I'm looking for</h3>
   <p>I'm looking for a group to join for weekly sessions, and I'm eager to try my hand at being the DM.</p>
 </div>
+<div className="about-me">
+  <h3>Interests</h3>
+  <div className='interests'>
+    <span>Fantasy Literature</span>
+    <span>Creative Writing</span>
+    <span>Cosplay</span>
+    <span>History</span>
+    <span>Gaming</span>
+    <span>Painting</span>
+    <span>Swimming</span>
+    <span>Reading</span>
+  </div>
+</div>
+<div className="about-me">
+  <h3>Spoken Languages</h3>
+  <div className='interests'>
+    <span>English</span>
+    <span>Danish</span>
+  </div>
+</div>
 </div>
 
       
