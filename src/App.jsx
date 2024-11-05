@@ -5,43 +5,31 @@ import Home from "./pages/Home";
 import FindPals from "./pages/FindPals";
 import DiceRoller from "./pages/DiceRoller";
 import MyPals from "./pages/MyPals";
-import "./styles/index.css";
+import AdventureJournal from "./pages/AdventureJournal";
 import PlayerChat from "./pages/PlayerChat";
+import "./styles/index.css";
 
 function App() {
   const location = useLocation();
 
   const getCurrentPageText = () => {
-    switch (location.pathname) {
-      case "/":
-        return "";
-      case "/findPals":
-        return "Find Pals";
-      case "/MyPals":
-        return "My Pals";
-      case "/DiceRoller":
-        return "Dice Roller";
-      case "/adventureJournal":
-        return "Adventure Journal";
-      case "/characterSheets":
-        return "Character Sheets";
-      default:
-        return ""; // Default text if no match is found
-    }
+    if (location.pathname === "/") return "";
+    if (location.pathname === "/findPals") return "Find Pals";
+    if (location.pathname === "/MyPals") return "My Pals";
+    if (location.pathname === "/DiceRoller") return "Dice Roller";
+    if (location.pathname.startsWith("/AdventureJournal")) return "Adventure Journal"; // Catch all paths for AdventureJournal
+    if (location.pathname === "/characterSheets") return "Character Sheets";
+    return ""; 
   };
+  
 
   return (
     <>
       <BurgerMenu currentPageText={getCurrentPageText()} />{" "}
-      {/* Pass the current page text */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/FindPals" element={<FindPals />} />
-        <Route path="/matches" element={<matches />} />
-        {/* <Route path="/characters" element={<Characters />} /> */}
-        {/* <Route path="/characters" element={<Characters />} /> */}
-        <Route path="/adventureJournal" element={<adventureJournal />} />
-        {/* <Route path="/CharacterSheets" element={<CharacterSheets />} /> */}
+        <Route path="/AdventureJournal/*" element={<AdventureJournal />} />
         <Route path="/DiceRoller" element={<DiceRoller />} />
         <Route path="/MyPals" element={<MyPals />} />
         <Route path="/PlayerChat" element={<PlayerChat />} />

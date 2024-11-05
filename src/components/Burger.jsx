@@ -15,7 +15,7 @@ const BurgerMenu = ({currentPageText}) => {
     <div className="burger-menu">
         <div className='navbar'>
       <div 
-        className={`backdrop ${isOpen ? 'show' : ''}`} 
+        className={`backdrop ${isOpen ? 'show' : ''}`}
         onClick={toggleMenu} 
       ></div>
 
@@ -44,7 +44,7 @@ const BurgerMenu = ({currentPageText}) => {
         <ul>
         <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_search.svg" alt="Search icon"/><p>Find Pals</p></div></NavLink></li>
           <li className="menu-space"><NavLink to="/findPals" onClick={toggleMenu}>Discover</NavLink></li>
-          <li className="menu-space"><NavLink to="/matches" onClick={toggleMenu}>Matches</NavLink></li>
+          <li className="menu-space"><NavLink to="/findPals?tab=matches" onClick={toggleMenu}>Matches</NavLink></li>
           </ul>
           <hr/>
           <ul>
@@ -54,7 +54,7 @@ const BurgerMenu = ({currentPageText}) => {
           </ul>
           <hr/>
           <ul>
-          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_journal.svg" alt="Journal icon"/><p>Adventure Journal</p></div></NavLink></li>
+          <li><NavLink to="/AdventureJournal" onClick={toggleMenu}><div><img src="/menu_journal.svg" alt="Journal icon"/><p>Adventure Journal</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>
@@ -84,7 +84,7 @@ const BurgerMenu = ({currentPageText}) => {
 
 
         <div className='menu-bottom' >
-            <a href="#"><div><img src="/soil_icon.svg" alt="dungeon pal icon" /><p>About Dungeon Pal</p></div></a>
+        <NavLink to="/" onClick={toggleMenu}><div><img src="/soil_icon.svg" alt="dungeon pal icon" /><p>About Dungeon Pal</p></div></NavLink>
             <a href="#"><div><img src="/menu_help.svg" alt="help icon" /><p>Help</p></div></a>
         </div>
       </nav>

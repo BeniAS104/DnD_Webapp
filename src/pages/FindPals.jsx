@@ -1,17 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // Import useLocation
 import PropTypes from 'prop-types'; // Import PropTypes
 import FindPalsModal from '../components/FindPalsModal';
 import '../styles/FindPals.css';
 
-const splitText = (text) => {
-  return text.split(',').map((part, index) => (
-    <span key={index}>
-      {part}{index < text.split(',').length - 1 && ',' /* Adds the comma */}
-      {index < text.split(',').length - 1 && <br />} {/* Adds <br> after each part except the last one */}
-    </span>
-  ));
-};
-
+// Sample user data
 const userData = {
   name: "Londinius",
   username: "londibest04",
@@ -25,19 +18,29 @@ const userData = {
   verify: "https://via.placeholder.com/100",
 };
 
-// Mock Discover and Matches components
+// Split Text Helper Function
+const splitText = (text) => {
+  return text.split(',').map((part, index) => (
+    <span key={index}>
+      {part}{index < text.split(',').length - 1 && ',' /* Adds the comma */}
+      {index < text.split(',').length - 1 && <br />} {/* Adds <br> after each part except the last one */}
+    </span>
+  ));
+};
+
+// Discover Component
 const Discover = ({ onJoinClick }) => (
   <div className="page-content">
     <div className="profile">
-      <img src='avatar.svg' alt="User Avatar" className="avatar" />
-      <img src='verify.svg' alt="verified icon" className='verify' />
+      <img src="avatar.svg" alt="User Avatar" className="avatar" />
+      <img src="verify.svg" alt="verified icon" className="verify" />
 
       <div className="profile-data">
         <h2>{userData.name}</h2>
-        <p className='username'>@{userData.username}</p>
+        <p className="username">@{userData.username}</p>
         <p>Age: <span>{userData.age}</span></p>
-        <p>Gender:  <span>{userData.gender}</span></p>
-        <p>Pronouns:  <span>{userData.pronouns}</span></p>
+        <p>Gender: <span>{userData.gender}</span></p>
+        <p>Pronouns: <span>{userData.pronouns}</span></p>
         <div><img src="location.svg" alt="" /><p> {userData.location}</p></div>
       </div>
     </div>
@@ -61,38 +64,10 @@ const Discover = ({ onJoinClick }) => (
 
       <div className="about-me">
         <h3>About Me</h3>
-        <p>Big fan of fantasy, storytelling, and all things D&D. I love building campaigns and diving into epic quests with a great group. Always up for meeting new people who are into creating wild characters and stories.</p>
-      </div>
-      <div className="about-me">
-        <h3>I&apos;m looking for</h3>
-        <p>I&apos;m looking for a group to join for weekly sessions, and I&apos;m eager to try my hand at being the DM.</p>
-      </div>
-      <div className="about-me">
-        <h3>Interests</h3>
-        <div className='interests'>
-          <span>Fantasy Literature</span>
-          <span>Creative Writing</span>
-          <span>Cosplay</span>
-          <span>History</span>
-          <span>Gaming</span>
-          <span>Painting</span>
-          <span>Swimming</span>
-          <span>Reading</span>
-        </div>
-      </div>
-      <div className="about-me">
-        <h3>Spoken Languages</h3>
-        <div className='interests'>
-          <span>English</span>
-          <span>Danish</span>
-        </div>
+        <p>{userData.aboutMe}</p>
       </div>
     </div>
 
-    <div className="report">
-      <button>Report User</button>
-    </div>
-    {/* Footer */}
     <footer className="footer">
       <button className="button pass"><img src="x.svg" alt="pass icon" />Pass</button>
       <hr className="divider" />
@@ -103,22 +78,37 @@ const Discover = ({ onJoinClick }) => (
 
 // Add prop types validation for the Discover component
 Discover.propTypes = {
-  onJoinClick: PropTypes.func.isRequired, // Validate onJoinClick as a required function
+  onJoinClick: PropTypes.func.isRequired,
 };
 
+// Matches Component
 const Matches = () => (
   <div className="matches-content">
-    <div className='no-groups'><p>Players and Groups you matched with will appear here.</p>
+    <div className="no-groups">
+      <p>Players and Groups you matched with will appear here.</p>
       <p>Head over to the <span>Discover</span> tab to find players and groups to join.</p>
     </div>
   </div>
 );
 
+// FindPals Component
 const FindPals = () => {
+  const location = useLocation(); // Access current URL location
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [activeTab, setActiveTab] = useState('Discover');
-  const [showPopUp, setShowPopUp] = useState(false);
-  const [isPopUpVisible, setIsPopUpVisible] = useState(false); // State to track if the popup is visible
+  const [activeTab, setActiveTab] = useState('Discover'); // State to track the active component
+  const [showPopUp, setShowPopUp] = useState(false); // State for the pop-up
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const tabParam = searchParams.get('tab');
+  
+    if (tabParam === 'matches') {
+      setActiveTab('Matches'); // Set active tab to "Matches" if `tab=matches` is in the URL
+    } else {
+      setActiveTab('Discover'); // Default to "Discover" if no `tab` parameter or any other value
+    }
+  }, [location.search]);
+  
 
   useEffect(() => {
     const hasSeenOnboarding = localStorage.getItem('hasSeenOnboarding');
@@ -133,18 +123,17 @@ const FindPals = () => {
   };
 
   const handleJoinClick = () => {
-    setShowPopUp(true);
-    setIsPopUpVisible(true); // Set pop-up to be visible
+    setShowPopUp(true); // Show the pop-up
     setTimeout(() => {
-      setIsPopUpVisible(false); // Hide after 2 seconds
-      setTimeout(() => setShowPopUp(false), 500); // Delay hiding the content after animation completes
+      setShowPopUp(false); // Hide it after 2 seconds
     }, 2000);
   };
 
   return (
     <div>
       {isModalVisible && <FindPalsModal onClose={handleCloseModal} />}
-      
+
+      {/* Upper division with tab buttons */}
       <div className='upper-division'>
         <div className="divide">
           <div 
@@ -162,10 +151,11 @@ const FindPals = () => {
         </div>
       </div>
 
-      {/* Show pop-up message with animation */}
+      {/* Show pop-up message when the Join button is clicked */}
       {showPopUp && (
-        <div className={`popup-message ${isPopUpVisible ? 'show' : 'hide'}`}>
-          You&apos;ve shown interest!
+        <div className="popup-message">
+          <img src="success.svg" alt="success" />
+          <p>You&apos;ve shown interest!</p>
         </div>
       )}
 
@@ -175,6 +165,5 @@ const FindPals = () => {
     </div>
   );
 };
-
 
 export default FindPals;
