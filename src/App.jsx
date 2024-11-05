@@ -25,6 +25,8 @@ function App() {
         return "Adventure Journal";
       case "/characterSheets":
         return "Character Sheets";
+      case "/PlayerChat":
+        return "My Pals";
       default:
         return ""; // Default text if no match is found
     }
