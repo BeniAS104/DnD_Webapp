@@ -1,0 +1,55 @@
+body {
+  background-color: var(--treasure-map-beige);
+}
+h1 {
+  font-size: 24px;
+  color: var(--soil-black);
+  font-weight: 400;
+}
+h2 {
+  font-size: 14px;
+  color: var(--peasant-gold);
+  font-weight: 400;
+}
+h3 {
+  font-size: 16px;
+  color: var(--divine-white);
+  font-weight: 600;
+}
+.players-content {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+.players-content img {
+  height: 52px;
+  width: auto;
+}
+.players-content-text {
+  text-align: left;
+  flex-grow: 1; /* Allow this section to take remaining space */
+}
+.time {
+  margin-top: auto;
+  align-self: flex-end;
+}
+.footer-mypals {
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  gap: 8px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--soil-black);
+}
+.upper-division-mypals {
+  background-color: var(--soil-black);
+  color: var(--divine-white);
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
