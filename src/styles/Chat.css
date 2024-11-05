@@ -36,6 +36,16 @@
   background-color: var(--treasure-map-beige);
 }
 
+.chat-bubble-container {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-avatar {
+  width: 28px;
+  height: 28px;
+}
+
 .chat-bubble {
   padding: 8px;
   margin-bottom: 24px;
@@ -52,39 +62,28 @@
   color: var(--divine-white);
   align-self: flex-end;
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping of flex items */
-  padding: 10px 15px; /* Add padding for spacing */
-  margin: 5px; /* Space between bubbles */
-  max-width: 80%; /* Limit width for better readability */
-  text-align: left; /* Align text to the left */
-  white-space: normal; /* Allow text to wrap */
-  overflow-wrap: break-word; /* Allow long words to break and wrap */
+  flex-wrap: wrap;
+  padding: 10px 15px;
+  max-width: 75%;
+  text-align: left;
   word-break: break-word; /* Break words if necessary */
 }
-
-
 .chat-input {
   display: flex;
+  gap: 10px;
   position: fixed;
   width: 100%;
   bottom: 0;
   background-color: var(--soil-black);
-  padding: 10px;
+  padding: 12px 20px;
 }
 
 input[type="text"] {
   flex: 1;
-  padding: 10px;
-  border: solid var();
-  outline: none;
-  margin-right: 5px;
-}
-
-.send-button {
-  background-color: #795548;
-  border: none;
-  padding: 10px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: var(--sand-beige);
+  color: #8e7671;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px;
+  border: 2px solid var(--peasant-gold);
 }
