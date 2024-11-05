@@ -9,7 +9,6 @@
 }
 .divide {
     display: flex;
-    
     justify-content: center;
     align-items: center;
     
@@ -61,7 +60,7 @@
   .page-content {
     background-color: var(--treasure-map-beige);
     overflow-y: auto;
-    padding: 74px 20px 125px 20px; /* Space for header */
+    padding: 74px 20px 255px 20px; /* Space for header */
     text-align: center;
   }
   .profile {
@@ -143,7 +142,28 @@
     background-color: var(--sand-beige);
     padding: 0.625rem;
   }
-  
+  .report {
+    background-color: var(--soil-black);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin-top: 2rem;
+    left: 0;
+    height: 7.5rem;
+
+  }
+  .report button {
+    display: flex;
+padding: 1rem 3rem;
+justify-content: center;
+align-items: center;
+gap: 0.625rem;
+background: var(--Divine-White, #F2F2F2);
+color: var(--ruby-red);
+font-weight: 700;
+  }
   
   /* Footer */
   .footer {
@@ -191,4 +211,54 @@
       
   }
   
-  
+  /* MATCHES SUBPAGE */
+.matches-content {
+  background-color: var(--treasure-map-beige);
+  height: 100vh;
+  padding-top: 72px;
+}
+.matches-content .no-groups {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.matches-content .no-groups p:nth-of-type(1){
+  font-weight: 600;
+  font-size: 1.5rem;
+  max-width: 20ch;
+  margin-bottom: 30px;
+}
+.matches-content .no-groups p:nth-of-type(2){
+  max-width: 30ch;
+}
+.matches-content .no-groups p:nth-of-type(2) span{
+  font-weight: 700;
+}
+
+/* Pop-up message styles */
+.popup-message {
+  position: fixed; /* Positioning it absolutely */
+  display: flex;
+  gap: 1rem;
+  top: 77%; /* Adjust this value based on your layout */
+  left: 50%; /* Center it horizontally */
+  width: 65%;
+  padding: 0.9rem 1.8rem;
+  transform: translateX(-50%); /* Adjust for center alignment */
+  background-color: var(--soil-black); /* Green background */
+  border: 2px solid var(--success);
+  color: var(--divine-white); /* White text */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  z-index: 1000; /* Ensure it appears above other content */
+  align-items: center;
+  justify-content: center;
+}
+.popup-message img{
+  max-width: 40px;
+}
+.popup-message p{
+  min-width: 17ch;
+}
