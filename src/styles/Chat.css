@@ -3,8 +3,8 @@
   flex-direction: column;
 }
 .chat-header {
-  position: fixed;
   width: 100%;
+  position: fixed;
   display: flex;
   align-items: center;
   background-color: rgba(25, 7, 3, 0.8);
