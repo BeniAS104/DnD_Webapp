@@ -1,0 +1,138 @@
+/* General styling */
+.landing-page {
+  background-color: #f5e7cd;
+  color: #2e2e2e;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+}
+
+.signup-button {
+  background-color: #d42a2f;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main-content {
+  background-color: #321b14;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 2rem 1rem;
+  max-width: 400px;
+}
+
+.d20-icon {
+  width: 60px;
+}
+
+.app-name {
+  font-family: "Cinzel", serif; /* A serif font similar to what's in the screenshot */
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.tagline {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+.button-group,
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.main-signup-button,
+.login-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.main-signup-button {
+  background-color: #d42a2f;
+  color: #fff;
+}
+
+.login-button {
+  background-color: #e5c964;
+  color: #2e2e2e;
+}
+
+.features {
+  text-align: left;
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #f2f2f2;
+}
+
+.features h2 {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.features p {
+  margin: 0.5rem 0 1rem;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-text {
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+}
+
+.cta-subtext {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.footer-home {
+  background-color: #f5e7cd;
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-brand {
+  color: #d42a2f;
+  font-family: "Cinzel", serif;
+  font-size: 1.5rem;
+}
+
+.contact-info {
+  margin: 1rem 0;
+}
+
+.contact-info p {
+  margin: 0.3rem 0;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #2e2e2e;
+}
