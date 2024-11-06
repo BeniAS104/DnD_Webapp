@@ -59,7 +59,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -71,60 +70,69 @@ body {
   background-color: var(--soil-black);
   color: var(--divine-white);
   padding: 20px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 8px 8px 0 0;
   position: relative;
   animation: slideUp 0.3s ease-in-out;
 }
 
 .modal-content h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 .modal-content input {
   width: 40%;
   padding: 8px;
-  margin: 10px 5px;
-  border-radius: 4px;
-  border: 1px solid var(--peasant-gold);
+  margin: 0 12px 12px;
+  border: 2px solid var(--peasant-gold);
+}
+
+.modal-content span {
+  font-size: 24px;
+  font-weight: 400;
 }
 
 .modal-content p {
-  font-size: 12px;
-  color: var(--peasant-gold);
-  margin-top: 5px;
+  color: #8e7671;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
 }
 
 .modal-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.cancel-button,
-.add-button {
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-top: 48px;
 }
 
 .cancel-button {
-  background-color: var(--soil-black);
-  color: var(--peasant-gold);
+  border: 2px solid var(--royal-gold);
+  background: var(--treasure-map-beige);
+  padding: 0.625rem;
+  color: var(--soil-black);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .add-button {
-  background-color: var(--peasant-gold);
-  color: var(--soil-black);
+  border: 2px solid var(--royal-gold);
+  background: var(--ruby-red);
+  padding: 0.625rem;
+  color: var(--divine-white);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .close-modal {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: none;
+  top: 20px;
+  right: 20px;
+  background: var(--ruby-red);
+  padding: 0 7px;
   border: none;
   font-size: 24px;
   color: var(--divine-white);
