@@ -40,6 +40,11 @@
   display: flex;
   gap: 8px;
 }
+.chat-bubble-container.me {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
 
 .chat-avatar {
   width: 28px;
@@ -84,6 +89,6 @@ input[type="text"] {
   color: #8e7671;
   font-size: 16px;
   font-weight: 600;
-  padding: 8px;
+  padding: 10px;
   border: 2px solid var(--peasant-gold);
 }
