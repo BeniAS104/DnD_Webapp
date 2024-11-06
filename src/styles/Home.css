@@ -1,98 +1,91 @@
-/* General styling */
 .landing-page {
-  background-color: #f5e7cd;
-  color: #2e2e2e;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: var(--treasure-map-beige);
+  color: var(--soil-black);
+}
+
+.main-content {
+  background-color: var(--soil-black);
+  color: var(--divine-white);
+  text-align: center;
+  padding: 48px 20px 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.logo {
-  width: 50px;
-}
-
-.signup-button {
-  background-color: #d42a2f;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.main-content {
-  background-color: #321b14;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 2rem 1rem;
-  max-width: 400px;
-}
-
-.d20-icon {
-  width: 60px;
-}
-
 .app-name {
-  font-family: "Cinzel", serif; /* A serif font similar to what's in the screenshot */
-  font-size: 2.5rem;
+  font-family: "DRAGON HUNTER";
+  font-weight: 400;
+  font-size: 36px;
   margin: 0.5rem 0;
 }
 
 .tagline {
-  font-weight: bold;
-  margin: 0.5rem 0;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 36px;
 }
 
 .description {
   font-size: 1rem;
   line-height: 1.5;
-  margin: 1rem 0;
+  margin: 0 20px 36px;
 }
 
-.button-group,
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .cta-buttons {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 20px;
 }
 
 .main-signup-button,
+.main-login-button,
+.signup-button,
 .login-button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  border: none;
+  padding: 0.625rem;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: 700;
+  border: 2px solid var(--royal-gold);
 }
 
-.main-signup-button {
-  background-color: #d42a2f;
-  color: #fff;
+.main-signup-button,
+.main-login-button {
+  width: 173px;
 }
 
+.main-signup-button,
+.signup-button {
+  background: var(--ruby-red);
+  color: var(--divine-white);
+}
+
+.main-login-button,
 .login-button {
-  background-color: #e5c964;
-  color: #2e2e2e;
+  background: var(--treasure-map-beige);
+  color: var(--soil-black);
 }
 
 .features {
-  text-align: left;
-  margin-top: 2rem;
+  margin-top: 32px;
   font-size: 1rem;
   color: #f2f2f2;
 }
 
 .features h2 {
-  margin-top: 1.5rem;
+  margin-top: 48px;
   font-size: 1.25rem;
   font-weight: bold;
 }
 
 .features p {
-  margin: 0.5rem 0 1rem;
+  margin: 16px 20px;
 }
 
 .cta-section {
@@ -101,38 +94,55 @@
 }
 
 .cta-text {
-  font-family: "Cinzel", serif;
-  font-size: 1.5rem;
+  font-family: "DRAGON HUNTER";
+  font-weight: 400;
+  font-size: 36px;
+  margin: 0.5rem 0;
 }
 
 .cta-subtext {
-  margin-top: 0.5rem;
-  font-size: 1.2rem;
+  margin: 24px 0 36px;
+  font-size: 24px;
+  font-weight: 700;
 }
 
 .footer-home {
-  background-color: #f5e7cd;
-  width: 100%;
-  padding: 1rem 0;
-  text-align: center;
-  font-size: 0.9rem;
+  padding: 24px 20px;
+}
+
+.footer-brand-container {
+  display: flex;
+  gap: 8px;
 }
 
 .footer-brand {
-  color: #d42a2f;
-  font-family: "Cinzel", serif;
-  font-size: 1.5rem;
+  color: var(--ruby-red);
+  font-family: "DRAGON HUNTER";
+  font-weight: 400;
+  font-size: 24px;
 }
 
 .contact-info {
-  margin: 1rem 0;
+  margin: 24px 0 36px;
+}
+
+.contact-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
 .contact-info p {
-  margin: 0.3rem 0;
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.contact-info-link {
+  display: flex;
+  gap: 12px;
 }
 
 .copyright {
-  font-size: 0.8rem;
-  color: #2e2e2e;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
