@@ -1,0 +1,17 @@
+/* InspirationCard.css */
+.inspiration-card {
+    background-color: #3f2f2f;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .inspiration-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .inspiration-info {
+    padding: 0.5rem;
+  }
+  

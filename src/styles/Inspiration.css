@@ -1,0 +1,55 @@
+/* Inspiration.css */
+.inspirations-page {
+    background-color: #2f1f1f;
+    color: #fff;
+    padding: 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .search-sort-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .search-bar {
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .sort-select {
+    padding: 0.5rem;
+    margin-left: 1rem;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-buttons button, .filter-buttons label {
+    margin: 0 0.5rem;
+    color: #fff;
+  }
+  
+  .inspirations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .create-post-btn {
+    background-color: #8c6631;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+  }
+  

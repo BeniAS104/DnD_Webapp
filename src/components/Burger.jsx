@@ -66,7 +66,7 @@ const BurgerMenu = ({currentPageText}) => {
           </ul>
           <hr/>
           <ul>
-          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_inspiration.svg" alt="inspiration icon"/><p>Inspiration</p></div></NavLink></li>
+          <li><NavLink to="/Inspiration" onClick={toggleMenu}><div><img src="/menu_inspiration.svg" alt="inspiration icon"/><p>Inspiration</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>

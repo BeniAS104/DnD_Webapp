@@ -8,6 +8,7 @@ import MyPals from "./pages/MyPals";
 import AdventureJournal from "./pages/AdventureJournal";
 import PlayerChat from "./pages/PlayerChat";
 import "./styles/index.css";
+import Inspiration from "./pages/InspirationsPage";
 
 function App() {
   const location = useLocation();
@@ -20,6 +21,7 @@ function App() {
     if (location.pathname.startsWith("/AdventureJournal")) return "Adventure Journal"; // Catch all paths for AdventureJournal
     if (location.pathname === "/characterSheets") return "Character Sheets";
     if (location.pathname === "/PlayerChat") return "My Pals";
+    if (location.pathname === "/Inspiration") return "Inspiration";
     return ""; 
   };
   
@@ -34,6 +36,7 @@ function App() {
         <Route path="/DiceRoller" element={<DiceRoller />} />
         <Route path="/MyPals" element={<MyPals />} />
         <Route path="/PlayerChat" element={<PlayerChat />} />
+        <Route path="/Inspiration" element={<Inspiration/>} />
       </Routes>
     </>
   );
