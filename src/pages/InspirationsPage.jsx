@@ -8,7 +8,7 @@ const InspirationsPage = () => {
 
   // Fetch JSON data from external link
   useEffect(() => {
-    fetch('https://drive.google.com/uc?export=download&id=YOUR_FILE_ID') // Replace with actual link ID
+    fetch('https://raw.githubusercontent.com/MartiBL/JSONforgames-crudproject/refs/heads/main/inspirations%20(1).json') // Replace with actual link ID
       .then(response => response.json())
       .then(data => {
         console.log("Fetched data:", data); // Debugging line
