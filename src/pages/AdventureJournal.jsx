@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { ref, onValue } from 'firebase/database'; // Import onValue from firebase/database
-import { db } from '../firebase'; // Only import db from firebase.js
+import { ref, onValue } from 'firebase/database';
+import { db } from '../firebase';
 import JournalList from '../components/JournalList';
 import NoteEditor from '../components/NoteEditor';
 
@@ -10,7 +10,7 @@ function AdventureJournal() {
 
   // Fetch notes from Firebase on component mount
   useEffect(() => {
-    const notesRef = ref(db, 'notes'); // Use db directly without re-calling getDatabase()
+    const notesRef = ref(db, 'notes');
     
     onValue(notesRef, (snapshot) => {
       const data = snapshot.val();
@@ -22,8 +22,7 @@ function AdventureJournal() {
 
       setNotes(notesArray);
     });
-
-  }, []);
+  }, []); // Only run on mount, no need to fetch again on note save
 
   return (
     <Routes>

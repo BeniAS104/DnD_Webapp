@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getDatabase, ref, set, push } from 'firebase/database';
+import { getDatabase, ref, set, push, remove } from 'firebase/database';
 import PropTypes from 'prop-types';
 import '../styles/components/NoteEditor.css';
 
-function NoteEditor({ notes, setNotes }) {
+function NoteEditor({ notes }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ function NoteEditor({ notes, setNotes }) {
   // Initialize title and content for existing note
   useEffect(() => {
     if (id !== 'new') {
-      const note = notes.find(note => note.id === parseInt(id));
+      const note = notes.find(note => note.id === id);
       if (note) {
         setTitle(note.title);
         setContent(note.content);
@@ -22,17 +22,14 @@ function NoteEditor({ notes, setNotes }) {
     }
   }, [id, notes]);
 
-  // Function to format the date and time
   const getFormattedDate = () => {
     const now = new Date();
     return `${now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} ${now.toLocaleDateString()}`;
   };
 
-  // Function to save the note (create or update)
   const saveNote = () => {
     const db = getDatabase();
     if (id === 'new') {
-      // Create a new note
       const newNoteRef = push(ref(db, 'notes/'));
       set(newNoteRef, {
         title,
@@ -40,23 +37,12 @@ function NoteEditor({ notes, setNotes }) {
         date: getFormattedDate(),
       })
         .then(() => {
-          // Update local state (setNotes) after saving to Firebase
-          setNotes(prevNotes => [
-            ...prevNotes,
-            {
-              id: newNoteRef.key,  // New Firebase key
-              title,
-              content,
-              date: getFormattedDate(),
-            },
-          ]);
           navigate('/AdventureJournal');
         })
         .catch(error => {
           console.error('Error saving new note: ', error);
         });
     } else {
-      // Update an existing note
       const noteRef = ref(db, `notes/${id}`);
       set(noteRef, {
         title,
@@ -64,14 +50,6 @@ function NoteEditor({ notes, setNotes }) {
         date: getFormattedDate(),
       })
         .then(() => {
-          // Update local state after saving the changes to Firebase
-          setNotes(prevNotes =>
-            prevNotes.map(note =>
-              note.id === parseInt(id)
-                ? { ...note, title, content, date: getFormattedDate() }
-                : note
-            )
-          );
           navigate('/AdventureJournal');
         })
         .catch(error => {
@@ -80,13 +58,32 @@ function NoteEditor({ notes, setNotes }) {
     }
   };
 
-  // Show a loading message if the note is not found
-  if (!notes || (id !== 'new' && !notes.find(note => note.id === parseInt(id)))) {
+  const deleteNote = () => {
+    const db = getDatabase();
+    const noteRef = ref(db, `notes/${id}`);
+    remove(noteRef)
+      .then(() => {
+        navigate('/AdventureJournal'); // Navigate back to journal list after deletion
+      })
+      .catch(error => {
+        console.error('Error deleting note: ', error);
+      });
+  };
+
+  // Check if the note exists before trying to render it
+  if (!notes || (id !== 'new' && !notes.find(note => note.id === id))) {
     return <p>Note not found</p>;
   }
 
   return (
     <div className="note-editor">
+      <div className="editor-header">
+        <button onClick={() => navigate(-1)} className="back-button">Back</button>
+        {id !== 'new' && (
+          <button onClick={deleteNote} className="delete-button">Delete</button>
+        )}
+      </div>
+
       <input
         type="text"
         value={title}
@@ -105,6 +102,7 @@ function NoteEditor({ notes, setNotes }) {
   );
 }
 
+// PropTypes for notes, but no setNotes since it's not used here anymore
 NoteEditor.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
@@ -114,7 +112,6 @@ NoteEditor.propTypes = {
       date: PropTypes.string.isRequired,
     })
   ).isRequired,
-  setNotes: PropTypes.func.isRequired,
 };
 
 export default NoteEditor;

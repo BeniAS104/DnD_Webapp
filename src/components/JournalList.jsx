@@ -20,23 +20,23 @@ function JournalList({ notes }) {
         className="search-bar"
       />
       <div className="note-container">
-  {filteredNotes.map(note => (
-    <Link 
-      key={note.id}  // Ensure this is unique for every note
-      to={`/AdventureJournal/note/${note.id}`} 
-      className="note-link"
-    >
-      <div className="note">
-        <h3>{note.title}</h3>
-        <p>{note.content.substring(0, 120)}...</p>
-        <div className="journal-date">
-          <img src="cloud.svg" alt="cloudicon" />
-          <small>{note.date}</small>
-        </div>
+        {filteredNotes.map(note => (
+          <Link
+            key={note.id || note.key}  // Ensure a unique key by using note.id or note.key
+            to={`/AdventureJournal/note/${note.id}`} 
+            className="note-link"
+          >
+            <div className="note">
+              <h3>{note.title}</h3>
+              <p>{note.content.substring(0, 120)}...</p>
+              <div className="journal-date">
+                <img src="cloud.svg" alt="cloudicon" />
+                <small>{note.date}</small>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
-    </Link>
-  ))}
-</div>
 
       <div className='create-list'>
         <Link to="/AdventureJournal/note/new">

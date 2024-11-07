@@ -32,3 +32,49 @@
     background-color: #45a049;
   }
   
+
+
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .back-button, .delete-button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .back-button:hover, .delete-button:hover {
+    background-color: #ddd;
+  }
+  
+  
+/* Styles for Notification */
+.notification {
+  position: fixed;
+  bottom: 400px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.notification.success {
+  background-color: #4caf50;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+.notification.visible {
+  opacity: 1;
+}
