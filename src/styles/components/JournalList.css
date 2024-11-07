@@ -9,11 +9,18 @@
     width: 100%;
     padding: 8px;
     margin-bottom: 20px;
+    background: url('/public/search.svg') no-repeat;
+    background-size: 22px; /* Adjust icon size */
+    background-position-x: calc(100% - 10px); /* Positions icon 10px from the right edge */
+    background-position-y: center;
+
+    
   }
   
   .note-container {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
   }
   
   .note-link {
@@ -22,8 +29,42 @@
   }
   
   .note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
     padding: 15px;
     margin-bottom: 10px;
+    height: 160px;
     background-color: var(--treasure-map-beige);
   }
-  
+  .journal-date {
+    display: flex;
+    gap: 8px;
+  }
+
+  .create-list {
+    width: 100%;
+    background-color: var(--treasure-map-beige);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+  .create-list a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .create-list img {
+    aspect-ratio: 1;
+    width: 40px;
+  }
+  .create-list p {
+    font-weight: 600;
+  }

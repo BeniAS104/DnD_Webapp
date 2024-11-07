@@ -1,21 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ref, onValue } from 'firebase/database'; // Import onValue from firebase/database
+import { db } from '../firebase'; // Only import db from firebase.js
 import JournalList from '../components/JournalList';
 import NoteEditor from '../components/NoteEditor';
 
 function AdventureJournal() {
-  const [notes, setNotes] = useState([
-    { id: 1, title: 'Kazaar Ruins', content: 'After a tense negotiation with the town’s mayor...', date: '17/10/2024' },
-    { id: 2, title: 'The Cursed Village of Eldermoor', content: 'Eldermoor, a once-thriving town now cursed...', date: '17/10/2024' },
-    { id: 3, title: 'The Shifting Labyrinth of Xal\'Tar', content: 'The Labyrinth seems unforgiving...', date: '17/10/2024' },
-  ]);
+  const [notes, setNotes] = useState([]);
+
+  // Fetch notes from Firebase on component mount
+  useEffect(() => {
+    const notesRef = ref(db, 'notes'); // Use db directly without re-calling getDatabase()
+    
+    onValue(notesRef, (snapshot) => {
+      const data = snapshot.val();
+      const notesArray = [];
+      
+      for (let id in data) {
+        notesArray.push({ id, ...data[id] });
+      }
+
+      setNotes(notesArray);
+    });
+
+  }, []);
 
   return (
     <Routes>
-  <Route path="/" element={<JournalList notes={notes} />} />
-  <Route path="note/:id" element={<NoteEditor notes={notes} setNotes={setNotes} />} /> {/* Ensure this is nested under AdventureJournal */}
-</Routes>
-
+      <Route path="/" element={<JournalList notes={notes} />} />
+      <Route path="note/:id" element={<NoteEditor notes={notes} setNotes={setNotes} />} />
+    </Routes>
   );
 }
 

@@ -6,7 +6,7 @@ import '../styles/components/JournalList.css';
 function JournalList({ notes }) {
   const [search, setSearch] = useState('');
 
-  const filteredNotes = notes.filter(note => 
+  const filteredNotes = notes.filter(note =>
     note.title.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -20,16 +20,29 @@ function JournalList({ notes }) {
         className="search-bar"
       />
       <div className="note-container">
-        {filteredNotes.map(note => (
-          <Link key={note.id} to={`/AdventureJournal/note/${note.id}`} className="note-link">
+  {filteredNotes.map(note => (
+    <Link 
+      key={note.id}  // Ensure this is unique for every note
+      to={`/AdventureJournal/note/${note.id}`} 
+      className="note-link"
+    >
+      <div className="note">
+        <h3>{note.title}</h3>
+        <p>{note.content.substring(0, 120)}...</p>
+        <div className="journal-date">
+          <img src="cloud.svg" alt="cloudicon" />
+          <small>{note.date}</small>
+        </div>
+      </div>
+    </Link>
+  ))}
+</div>
 
-            <div className="note">
-              <h3>{note.title}</h3>
-              <p>{note.content.substring(0, 100)}...</p>
-              <small>{note.date}</small>
-            </div>
-          </Link>
-        ))}
+      <div className='create-list'>
+        <Link to="/AdventureJournal/note/new">
+          <img src="create.svg" alt="" />
+          <p>Create Log</p>
+        </Link>
       </div>
     </div>
   );
@@ -38,7 +51,7 @@ function JournalList({ notes }) {
 JournalList.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
