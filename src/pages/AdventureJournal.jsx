@@ -7,6 +7,8 @@ import NoteEditor from '../components/NoteEditor';
 
 function AdventureJournal() {
   const [notes, setNotes] = useState([]);
+  const [showSaveNotification, setShowSaveNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState(''); // To hold the notification message
 
   // Fetch notes from Firebase on component mount
   useEffect(() => {
@@ -24,11 +26,38 @@ function AdventureJournal() {
     });
   }, []); // Only run on mount, no need to fetch again on note save
 
+  // Reset notification when journal page is shown
+  useEffect(() => {
+    setShowSaveNotification(false);
+    setNotificationMessage('');
+  }, []);
+
+  const handleNotification = (message) => {
+    setNotificationMessage(message);
+    setShowSaveNotification(true);
+    setTimeout(() => setShowSaveNotification(false), 2000); // Hide after 2 seconds
+  };
+
   return (
-    <Routes>
-      <Route path="/" element={<JournalList notes={notes} />} />
-      <Route path="note/:id" element={<NoteEditor notes={notes} setNotes={setNotes} />} />
-    </Routes>
+    <div>
+      {/* Notification */}
+      {showSaveNotification && (
+        <div className="save-notification">
+          <p>{notificationMessage}</p>
+        </div>
+      )}
+
+      <Routes>
+        <Route 
+          path="/" 
+          element={<JournalList notes={notes} />} 
+        />
+        <Route 
+          path="note/:id" 
+          element={<NoteEditor notes={notes} setNotification={handleNotification} />} 
+        />
+      </Routes>
+    </div>
   );
 }
 

@@ -3,15 +3,14 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set, push, remove } from 'firebase/database';
 import PropTypes from 'prop-types';
 import '../styles/components/NoteEditor.css';
-import DeleteConfirmationModal from './DeleteConfirmationModal'; // Import the delete confirmation modal
 
-function NoteEditor({ notes }) {
+function NoteEditor({ notes, setNotification }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [showDeleteModal, setShowDeleteModal] = useState(false); // State for the modal visibility
+  const [showDeleteModal, setShowDeleteModal] = useState(false); // State to track delete modal visibility
 
   // Initialize title and content for existing note
   useEffect(() => {
@@ -39,6 +38,8 @@ function NoteEditor({ notes }) {
         date: getFormattedDate(),
       })
         .then(() => {
+          // Trigger notification after new note is created
+          setNotification('Note successfully created!');
           navigate('/AdventureJournal');
         })
         .catch(error => {
@@ -52,6 +53,8 @@ function NoteEditor({ notes }) {
         date: getFormattedDate(),
       })
         .then(() => {
+          // Trigger notification after note is saved (edited)
+          setNotification('Note saved successfully!');
           navigate('/AdventureJournal');
         })
         .catch(error => {
@@ -60,20 +63,22 @@ function NoteEditor({ notes }) {
     }
   };
 
+  // Delete note function
   const deleteNote = () => {
     const db = getDatabase();
     const noteRef = ref(db, `notes/${id}`);
     remove(noteRef)
       .then(() => {
-        navigate('/AdventureJournal'); // Navigate back to journal list after deletion
+        navigate('/AdventureJournal');
       })
       .catch(error => {
         console.error('Error deleting note: ', error);
       });
   };
 
-  const handleDeleteClick = () => {
-    setShowDeleteModal(true); // Show the confirmation modal
+  // Toggle delete modal visibility
+  const toggleDeleteModal = () => {
+    setShowDeleteModal(!showDeleteModal);
   };
 
   // Check if the note exists before trying to render it
@@ -86,20 +91,9 @@ function NoteEditor({ notes }) {
       <div className="editor-header">
         <button onClick={() => navigate(-1)} className="back-button">Back</button>
         {id !== 'new' && (
-          <button onClick={handleDeleteClick} className="delete-button">Delete</button>
+          <button onClick={toggleDeleteModal} className="delete-button">Delete</button>
         )}
       </div>
-
-      {/* Render the delete confirmation modal */}
-      {showDeleteModal && (
-        <DeleteConfirmationModal
-          onConfirm={() => {
-            deleteNote(); // Confirm the deletion
-            setShowDeleteModal(false); // Hide modal
-          }}
-          onCancel={() => setShowDeleteModal(false)} // Cancel deletion
-        />
-      )}
 
       <input
         type="text"
@@ -114,7 +108,20 @@ function NoteEditor({ notes }) {
         className="note-content"
         placeholder="Enter note content"
       />
-      <button onClick={saveNote} className="save-button">Save</button>
+      <button onClick={saveNote} className="save-button">
+        {id === 'new' ? 'Create' : 'Save'}
+      </button>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="modal-backdrop">
+          <div className="delete-modal">
+            <p>Are you sure you want to delete this note?</p>
+            <button onClick={deleteNote} className="delete-confirm">Yes, delete</button>
+            <button onClick={toggleDeleteModal} className="delete-cancel">Cancel</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -129,6 +136,7 @@ NoteEditor.propTypes = {
       date: PropTypes.string.isRequired,
     })
   ).isRequired,
+  setNotification: PropTypes.func.isRequired, // Function to set notification state in parent
 };
 
 export default NoteEditor;
