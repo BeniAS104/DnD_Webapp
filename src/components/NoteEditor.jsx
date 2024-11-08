@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getDatabase, ref, set, push, remove } from 'firebase/database';
 import PropTypes from 'prop-types';
 import '../styles/components/NoteEditor.css';
+import DeleteConfirmationModal from './DeleteConfirmationModal'; // Import the delete confirmation modal
 
 function NoteEditor({ notes }) {
   const { id } = useParams();
@@ -10,6 +11,7 @@ function NoteEditor({ notes }) {
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [showDeleteModal, setShowDeleteModal] = useState(false); // State for the modal visibility
 
   // Initialize title and content for existing note
   useEffect(() => {
@@ -70,6 +72,10 @@ function NoteEditor({ notes }) {
       });
   };
 
+  const handleDeleteClick = () => {
+    setShowDeleteModal(true); // Show the confirmation modal
+  };
+
   // Check if the note exists before trying to render it
   if (!notes || (id !== 'new' && !notes.find(note => note.id === id))) {
     return <p>Note not found</p>;
@@ -80,9 +86,20 @@ function NoteEditor({ notes }) {
       <div className="editor-header">
         <button onClick={() => navigate(-1)} className="back-button">Back</button>
         {id !== 'new' && (
-          <button onClick={deleteNote} className="delete-button">Delete</button>
+          <button onClick={handleDeleteClick} className="delete-button">Delete</button>
         )}
       </div>
+
+      {/* Render the delete confirmation modal */}
+      {showDeleteModal && (
+        <DeleteConfirmationModal
+          onConfirm={() => {
+            deleteNote(); // Confirm the deletion
+            setShowDeleteModal(false); // Hide modal
+          }}
+          onCancel={() => setShowDeleteModal(false)} // Cancel deletion
+        />
+      )}
 
       <input
         type="text"
@@ -102,7 +119,7 @@ function NoteEditor({ notes }) {
   );
 }
 
-// PropTypes for notes, but no setNotes since it's not used here anymore
+// PropTypes for notes
 NoteEditor.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({

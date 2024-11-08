@@ -7,8 +7,8 @@ import DiceRoller from "./pages/DiceRoller";
 import MyPals from "./pages/MyPals";
 import AdventureJournal from "./pages/AdventureJournal";
 import PlayerChat from "./pages/PlayerChat";
-import "./styles/index.css";
 import Inspiration from "./pages/InspirationsPage";
+import "./styles/index.css";
 
 
 function App() {
