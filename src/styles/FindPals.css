@@ -108,7 +108,7 @@
    font-weight: 600;
   }
   .list {
-    background-color: #DDD2B6; 
+    background-color: var(--sand-beige); 
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;

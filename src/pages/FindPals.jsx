@@ -32,15 +32,15 @@ const splitText = (text) => {
 const Discover = ({ onJoinClick }) => (
   <div className="page-content">
     <div className="profile">
-      <img src="avatar.svg" alt="User Avatar" className="avatar" />
-      <img src="verify.svg" alt="verified icon" className="verify" />
+      <img src='avatar.svg' alt="User Avatar" className="avatar" />
+      <img src='verify.svg' alt="verified icon" className='verify' />
 
       <div className="profile-data">
         <h2>{userData.name}</h2>
-        <p className="username">@{userData.username}</p>
+        <p className='username'>@{userData.username}</p>
         <p>Age: <span>{userData.age}</span></p>
-        <p>Gender: <span>{userData.gender}</span></p>
-        <p>Pronouns: <span>{userData.pronouns}</span></p>
+        <p>Gender:  <span>{userData.gender}</span></p>
+        <p>Pronouns:  <span>{userData.pronouns}</span></p>
         <div><img src="location.svg" alt="" /><p> {userData.location}</p></div>
       </div>
     </div>
@@ -64,10 +64,38 @@ const Discover = ({ onJoinClick }) => (
 
       <div className="about-me">
         <h3>About Me</h3>
-        <p>{userData.aboutMe}</p>
+        <p>Big fan of fantasy, storytelling, and all things D&D. I love building campaigns and diving into epic quests with a great group. Always up for meeting new people who are into creating wild characters and stories.</p>
+      </div>
+      <div className="about-me">
+        <h3>I&apos;m looking for</h3>
+        <p>I&apos;m looking for a group to join for weekly sessions, and I&apos;m eager to try my hand at being the DM.</p>
+      </div>
+      <div className="about-me">
+        <h3>Interests</h3>
+        <div className='interests'>
+          <span>Fantasy Literature</span>
+          <span>Creative Writing</span>
+          <span>Cosplay</span>
+          <span>History</span>
+          <span>Gaming</span>
+          <span>Painting</span>
+          <span>Swimming</span>
+          <span>Reading</span>
+        </div>
+      </div>
+      <div className="about-me">
+        <h3>Spoken Languages</h3>
+        <div className='interests'>
+          <span>English</span>
+          <span>Danish</span>
+        </div>
       </div>
     </div>
 
+    <div className="report">
+      <button>Report User</button>
+    </div>
+    {/* Footer */}
     <footer className="footer">
       <button className="button pass"><img src="x.svg" alt="pass icon" />Pass</button>
       <hr className="divider" />
@@ -75,6 +103,7 @@ const Discover = ({ onJoinClick }) => (
     </footer>
   </div>
 );
+
 
 // Add prop types validation for the Discover component
 Discover.propTypes = {
