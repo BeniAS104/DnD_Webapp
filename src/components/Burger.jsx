@@ -26,7 +26,7 @@ const BurgerMenu = ({currentPageText}) => {
       </div>
       <NavLink to="/">
       <img 
-  src="red_icon.svg" 
+  src="/red_icon.svg" 
   alt="red dungeon pal logo" 
   style={{ marginLeft: '1rem', height: '42px' }} 
 /></NavLink>

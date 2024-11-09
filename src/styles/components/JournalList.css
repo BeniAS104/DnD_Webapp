@@ -13,14 +13,22 @@
     background-size: 22px; /* Adjust icon size */
     background-position-x: calc(100% - 10px); /* Positions icon 10px from the right edge */
     background-position-y: center;
-
-    
   }
+  input.search-bar {
+    border: 2px solid var(--peasant-gold);
+    border-radius: unset;
+    background-color: var(--sand-beige);
+  }
+  .search-bar::placeholder {
+    font-weight: 600; /* Or any other desired weight */
+  }
+  
   
   .note-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    min-height: 600px;
   }
   
   .note-link {

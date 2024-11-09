@@ -83,7 +83,7 @@
   padding: 12px 20px;
 }
 
-input[type="text"] {
+ input[type="text"].chat-inputed {
   flex: 1;
   background-color: var(--sand-beige);
   color: #8e7671;

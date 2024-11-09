@@ -8,7 +8,7 @@ import NoteEditor from '../components/NoteEditor';
 function AdventureJournal() {
   const [notes, setNotes] = useState([]);
   const [showSaveNotification, setShowSaveNotification] = useState(false);
-  const [notificationMessage, setNotificationMessage] = useState(''); // To hold the notification message
+  const [notificationMessage, setNotificationMessage] = useState('');
 
   // Fetch notes from Firebase on component mount
   useEffect(() => {
@@ -24,7 +24,7 @@ function AdventureJournal() {
 
       setNotes(notesArray);
     });
-  }, []); // Only run on mount, no need to fetch again on note save
+  }, []);
 
   // Reset notification when journal page is shown
   useEffect(() => {
@@ -43,6 +43,7 @@ function AdventureJournal() {
       {/* Notification */}
       {showSaveNotification && (
         <div className="save-notification">
+          <img src="/success.svg" alt="notification icon" className="notification-icon" />
           <p>{notificationMessage}</p>
         </div>
       )}

@@ -104,6 +104,7 @@ function PlayerChat() {
           />
         </svg>
         <input
+        className="chat-inputed"
           type="text"
           placeholder="Type your message..."
           value={inputValue}

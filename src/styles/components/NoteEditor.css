@@ -2,56 +2,72 @@
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
+    background-color: var(--soil-black);
+    height: 90.6vh;
   }
   
-  .note-title {
+  input.note-title {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     font-size: 18px;
+    font-weight: 600;
+    border: unset;
+    background-color: var(--treasure-map-beige);
   }
   
   .note-content {
+    background-color: var(--treasure-map-beige);
+    border: unset;
     width: 100%;
-    height: 300px;
+    height: 400px;
     padding: 10px;
     font-size: 16px;
+    margin-bottom: 1rem;
+    line-height: 1.7;
   }
   
   .save-button {
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  display: flex;
+  border: 2px solid var(--royal-gold);
+  background: var(--ruby-red);
+  align-items: center;
+  justify-content: center;
+  color: var(--divine-white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.625rem 7rem;
+  margin: 20px auto;
   }
-  
-  .save-button:hover {
-    background-color: #45a049;
-  }
-  
 
+  input:focus, textarea:focus {
+    outline: none; /* Removes default outline */
+  }
+  
+  
+  .edit-note-container {
+    background-color: var(--sand-beige);
+    padding: 10px 10px 20px 10px;
+  }
+  .inform {
+    color: var(--soil-black);
+    margin-bottom: 8px;
+  }
 
   .editor-header {
     display: flex;
-    justify-content: space-between;
+    
     align-items: center;
     margin-bottom: 20px;
   }
   
-  .back-button, .delete-button {
-    background-color: #f0f0f0;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+ .note-editor .back-button {
+  padding: 10px;
   }
-  
-  .back-button:hover, .delete-button:hover {
-    background-color: #ddd;
+ .note-editor .back-button img{
+  aspect-ratio: 1;
+  width: 18px;
   }
-  
   
 /* Styles for Notification */
 .notification {
@@ -69,16 +85,26 @@
 
 .save-notification {
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   left: 50%;
+  bottom: 20%;
+  border: 2px solid var(--success);
   transform: translateX(-50%);
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
+  background-color: var(--soil-black);
+  color: var(--divine-white);
+  padding: 15px 30px;
   font-size: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 1;
+  z-index: 1000;
   transition: opacity 0.5s ease-in-out;
+  white-space: nowrap;
+}
+.save-notification img {
+  width: 40px;
+  aspect-ratio: 1;
 }
 
 .save-notification.fade-out {
@@ -96,4 +122,90 @@
 
 .notification.visible {
   opacity: 1;
+}
+.note-title-display {
+  color: var(--divine-white);
+}
+
+.delete-button {
+  display: flex;
+  gap: 8px;
+  border: 2px solid var(--divine-white);
+  background: var(--soil-black);
+  align-items: center;
+  justify-content: center;
+  color: var(--divine-white);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.625rem 5.9rem;
+  margin: 0 auto;
+}
+
+.delete-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: var(--soil-black);
+  color: var(--divine-white);
+  padding: 25px;
+}
+.delete-modal p{
+  text-wrap: wrap;
+  max-width: 25ch;
+  text-align: center;
+  margin: 50px auto 20px;
+}
+.delete-modal p:nth-of-type(2){
+  text-wrap: wrap;
+  max-width: 25ch;
+  text-align: center;
+  margin: 0px auto 20px;
+}
+.delete-modal p span{
+  text-wrap: wrap;
+  max-width: 50ch;
+  font-weight: 700;
+}
+
+.delete-modal h2 {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust by 50% of the element’s width to perfectly center */
+  padding: 10px;
+  max-width: 50ch;
+  white-space: nowrap;
+}
+
+.delete-modal div {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
+.close-modal-img {
+  aspect-ratio: 1;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+button.delete-cancel {
+  background-color: var(--treasure-map-beige);
+  padding: 0.625rem 1.25rem;
+  border: 2px solid var(--royal-gold);
+  color: var(--soil-black);
+  font-weight: 600;
+}
+button.delete-confirm{
+  background-color: var(--ruby-red);
+  padding: 0.625rem 1.25rem;
+  border: 2px solid var(--royal-gold);
+  color: var(--divine-white);
+  font-weight: 600;
 }
