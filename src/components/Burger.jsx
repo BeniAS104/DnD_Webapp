@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const BurgerMenu = ({currentPageText}) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
+  const toggleMenu = () => { // is normally false but when burger gets clicked that gets turned to true and vice versa
     setIsOpen((prev) => !prev);
   };
 
@@ -58,7 +58,7 @@ const BurgerMenu = ({currentPageText}) => {
           </ul>
           <hr/>
           <ul>
-          <li><NavLink to="/findPals" onClick={toggleMenu}><div><img src="/menu_sheets.svg" alt="sheets icon"/><p>Character Sheets</p></div></NavLink></li>
+          <li><NavLink to="/characterSheets" onClick={toggleMenu}><div><img src="/menu_sheets.svg" alt="sheets icon"/><p>Character Sheets</p></div></NavLink></li>
           </ul>
           <hr/>
           <ul>

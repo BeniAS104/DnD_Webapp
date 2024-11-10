@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import '../styles/components/JournalList.css';
 
-function JournalList({ notes }) {
-  const [search, setSearch] = useState('');
+function JournalList({ notes }) { // Defining a functional component that takes `notes` as a prop.
+  const [search, setSearch] = useState(''); // Setting up local state to manage the search input value.
 
-  const filteredNotes = notes.filter(note =>
+  const filteredNotes = notes.filter(note =>  // Filtering the notes based on the search query, ensuring the title matches the search term (case-insensitive).
     note.title.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -15,8 +15,8 @@ function JournalList({ notes }) {
       <input
         type="text"
         placeholder="Search notes"
-        value={search}
-        onChange={e => setSearch(e.target.value)}
+        value={search} // Binding the search input to the `search` state.
+        onChange={e => setSearch(e.target.value)} // Updating the `search` state when the user types in the input.
         className="search-bar"
       />
       <div className="note-container">
@@ -25,13 +25,14 @@ function JournalList({ notes }) {
         ) : (
           filteredNotes.map(note => (
             <Link
-              key={note.id || note.key} 
+              key={note.id || note.key} //fallback mechanism, ensures that each note has a unique key even if one property is missing
               to={`/AdventureJournal/note/${note.id}`} 
               className="note-link"
             >
               <div className="note">
                 <h3>{note.title}</h3>
-                <p>{note.content.substring(0, 120)}...</p>
+                <p>{note.content.substring(0, 120)}...</p> {/* This takes the first 120 characters of note.content. substring(0, 120) extracts characters from position 0 to position 120 (exclusive). */}
+
                 <div className="journal-date">
                   <img src="cloud.svg" alt="cloudicon" />
                   <small>{note.date}</small>

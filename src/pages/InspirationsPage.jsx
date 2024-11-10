@@ -1,5 +1,5 @@
 // Inspiration.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import InspirationCard from '../components/InspirationCard.jsx';
 import '../styles/Inspiration.css';
 

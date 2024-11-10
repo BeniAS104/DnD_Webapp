@@ -9,8 +9,8 @@
     width: 100%;
     padding: 8px;
     margin-bottom: 20px;
-    background: url('/public/search.svg') no-repeat;
-    background-size: 22px; /* Adjust icon size */
+    background: url('/search.svg') no-repeat;
+    background-size: 22px; 
     background-position-x: calc(100% - 10px); /* Positions icon 10px from the right edge */
     background-position-y: center;
   }
@@ -20,7 +20,7 @@
     background-color: var(--sand-beige);
   }
   .search-bar::placeholder {
-    font-weight: 600; /* Or any other desired weight */
+    font-weight: 600; 
   }
   
   small {

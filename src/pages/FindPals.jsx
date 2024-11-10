@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import FindPalsModal from '../components/FindPalsModal';
 import '../styles/FindPals.css';
 
-// Sample data for users and groups
+// Sample data for users and groups as objects
 const profilesData = [
   {
     id: 1,
@@ -47,9 +47,9 @@ const profilesData = [
   },
 ];
 
-// Split text with comma separation and line breaks
+// Split text into parts separated by commas and add line breaks for readability
 const splitText = (text) => {
-  const parts = text.split(',').map(part => part.trim());
+  const parts = text.split(',').map(part => part.trim());  // Split text into array based on commas
   return parts.map((part, index) => (
     <span key={index}>
       {part}
@@ -59,7 +59,7 @@ const splitText = (text) => {
   ));
 };
 
-// UserProfile Component - for displaying a user profile
+// UserProfile Component - for displaying a user profile |  Using the profile object to display information
 const UserProfile = ({ profile, onJoinClick }) => (
   <div className="page-content">
     <div className="profile">
