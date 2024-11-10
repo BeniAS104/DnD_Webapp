@@ -1,8 +1,3 @@
-# React + Vite
+# Dungeon Pal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Web-App for a project made in Business Academy Aarhus, namely a web-app named Dungeon Pal with CRUD functionality and features tailored for Dungeons & Dragons players based on proper research and mappings conducted by group members: Alicja Bal, Benjamin Marzecki, Martin Blazhev
