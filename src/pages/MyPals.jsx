@@ -9,7 +9,7 @@ const userData = {
   name2: "Londinius",
   age2: 20,
   groupName: "The Wildblades",
-  groupName2: "MOTHERS!!!",
+  groupName2: "HobbitoidZ",
 };
 
 const Modal = ({ onClose }) => (
@@ -111,7 +111,7 @@ const Players = () => {
 const Groups = () => (
   <div>
     <div className="players-content">
-      <img src="group-avatar.svg" alt="avatar" />
+      <img src="/group-avatar.svg" alt="avatar" />
       <div className="players-content-text">
         <h1>{userData.groupName}</h1>
         <h2>Astrid: Thank you for today! </h2>
@@ -121,10 +121,10 @@ const Groups = () => (
       </div>
     </div>
     <div className="players-content">
-      <img src="group-avatar.svg" alt="avatar" />
+      <img src="/keepers.svg" alt="avatar" />
       <div className="players-content-text">
         <h1>{userData.groupName2}</h1>
-        <h2>Chelseigh: WE ATE GUYS!!!</h2>
+        <h2>Chelseigh: How about tomorrow?</h2>
       </div>
       <div className="time">
         <h2>20:13</h2>

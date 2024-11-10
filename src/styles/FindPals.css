@@ -79,7 +79,7 @@
   .profile-data div{
     display: flex;
     gap: 0.5rem;
-    justify-content: center;
+
     align-items: center;
   }
   .profile-data .username {
@@ -102,18 +102,21 @@
   .about {
    text-align: left;
   }
-  .about h3{
+  .about-me p {
+    text-align: left;
+  }
+  .about h3, .about-me h3{
    margin-bottom: 1rem;
    margin-top: 1rem;
    font-weight: 600;
+   text-align: left;
   }
   .list {
     background-color: var(--sand-beige); 
     display: flex;
-    flex-wrap: wrap;
     padding: 1rem;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
     width: 100%;
     font-weight: 600;
     text-align: center;
@@ -129,9 +132,6 @@
   }
   .list div img{
     scale: 1.1;
-  }
-  .list div p{
-    max-width: 20ch;
   }
   .interests {
     display: flex;
@@ -164,7 +164,19 @@ background: var(--Divine-White, #F2F2F2);
 color: var(--ruby-red);
 font-weight: 700;
   }
-  
+  .member-info {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--soil-black);
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .member-info img{
+    width: 40px;
+  }
   /* Footer */
   .footer {
     left: 0;
@@ -262,4 +274,33 @@ font-weight: 700;
 }
 .popup-message p{
   min-width: 17ch;
+}
+
+.match-item {
+  display: flex;
+  padding: 40px 30px;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80px;
+  gap: 2rem;
+  border-bottom: 2px solid var(--peasant-gold);
+}
+.match-item p{
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+.match-item img{
+  width: 50px;
+}
+.match-item button {
+  border: 2px solid var(--royal-gold);
+  background: var(--ruby-red);
+  padding: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--divine-white);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-left: auto;
 }

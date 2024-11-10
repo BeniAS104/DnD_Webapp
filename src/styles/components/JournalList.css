@@ -23,7 +23,9 @@
     font-weight: 600; /* Or any other desired weight */
   }
   
-  
+  small {
+    color: var(--peasant-gold);
+  }
   .note-container {
     display: flex;
     flex-direction: column;
