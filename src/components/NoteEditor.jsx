@@ -1,3 +1,4 @@
+// Made by Benjamin
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; 
 import { getDatabase, ref, set, push, remove } from 'firebase/database'; // Firebase database functions

@@ -1,3 +1,4 @@
+// Made by Alicja 
 import "../styles/Home.css";
 
 const Home = () => {

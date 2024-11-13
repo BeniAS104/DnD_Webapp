@@ -1,7 +1,7 @@
+// Made by Benjamin
 import { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-// Import Firebase functions for reading data from Firebase
-import { ref, onValue } from 'firebase/database';
+import { ref, onValue } from 'firebase/database'; // Import Firebase functions for reading data from Firebase
 import { db } from '../firebase';
 import JournalList from '../components/JournalList';
 import NoteEditor from '../components/NoteEditor';

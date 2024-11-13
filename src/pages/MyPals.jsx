@@ -1,3 +1,4 @@
+// Made by Alicja
 import { useState } from "react";
 import PropTypes from "prop-types";
 import "../styles/MyPals.css";

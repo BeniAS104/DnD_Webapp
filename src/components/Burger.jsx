@@ -1,3 +1,4 @@
+// Made by Benjamin
 import { useState } from 'react';
 import '../styles/components/BurgerMenu.css';
 import PropTypes from 'prop-types';

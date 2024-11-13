@@ -1,5 +1,4 @@
-// InspirationCard.jsx
-import React from 'react';
+// Made by Martin (unfinished)
 import PropTypes from 'prop-types';
 import '../styles/InspirationCard.css';
 

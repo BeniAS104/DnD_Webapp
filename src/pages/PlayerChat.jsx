@@ -1,3 +1,4 @@
+// Made by Alicja
 import { useState } from "react";
 import "../styles/Chat.css";
 import { NavLink } from "react-router-dom";
